@@ -10,6 +10,7 @@ npm install http-server -g is needed for running front end
 
 ###### Back End
 ###### Task Commands:
+Url where instance is started http://localhost:4000/api here you can see swagger end points
 - **./build.ps1 -Target Run-Backend** - Will compile the files, runs unit and integration tests, copies files to dist folder and runs web api.
 
 - **./build.ps1 -Target BuildAndTest-Backend** - Will compile the files, runs unit and integration tests.

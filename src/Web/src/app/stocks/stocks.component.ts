@@ -9,7 +9,20 @@ import { StocksService } from '@/_services';
 import { Stock } from '@/_models/stock';
 import { User } from '@/_models';
 
-@Component({ templateUrl: 'stocks.component.html' })
+@Component({ templateUrl: 'stocks.component.html',
+styles: [`
+        :host ::ng-deep .ui-table .ui-table-thead > tr > th {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 55px;
+        }
+
+        @media screen and (max-width: 64em) {
+            :host ::ng-deep .ui-table .ui-table-thead > tr > th {
+                top: 100px;
+            }
+        }
+`] })
 export class StocksComponent implements OnInit {
     currentUser: User;
     userFromApi: User;

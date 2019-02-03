@@ -1,6 +1,6 @@
 <h1>Batches</h1>
 
-<p-table [columns]="cols" [value]="batches" selectionMode="single" [(selection)]="selectedBatch" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="15">
+<p-table [columns]="cols" [value]="batches" selectionMode="single" [(selection)]="selectedBatch" (onRowSelect)="onRowSelect($event)">
     <ng-template pTemplate="caption">
         List of Batches
     </ng-template>

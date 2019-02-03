@@ -14,7 +14,20 @@ import { BatchesService } from '@/_services';
 import { Fruit } from '@/_models';
 
 @Component({
-    templateUrl: 'batches.component.html' })
+    templateUrl: 'batches.component.html',
+    styles: [`
+    :host ::ng-deep .ui-table .ui-table-thead > tr > th {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 55px;
+    }
+
+    @media screen and (max-width: 64em) {
+        :host ::ng-deep .ui-table .ui-table-thead > tr > th {
+            top: 100px;
+        }
+    }
+`] })
 export class BatchesComponent implements OnInit {
     currentUser: User;
     userFromApi: User;
