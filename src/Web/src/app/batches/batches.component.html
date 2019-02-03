@@ -1,0 +1,54 @@
+<h1>Batches</h1>
+
+<p-table [columns]="cols" [value]="batches" selectionMode="single" [(selection)]="selectedBatch" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="15">
+    <ng-template pTemplate="caption">
+        List of Batches
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+            <td *ngFor="let col of columns">
+                {{rowData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary" let-rowData>
+        <div style="text-align:left">
+            <button type="button" pButton icon="fa fa-plus" (click)="showDialogToAdd()" label="Add"></button>
+        </div>
+    </ng-template>    
+</p-table>
+
+<p-dialog header="Batch Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true"  [style]="{width: '500px'}">
+        <div class="ui-g ui-fluid" *ngIf="batch">
+            <div class="ui-g-12">
+                <div class="ui-g-4">
+                    <label for="year">Fruit</label>
+                </div>
+                <div class="ui-g-8">
+                    <p-dropdown placeholder="Select Fruit" appendTo="body" [options]="displayFruits" [(ngModel)]="batch.fruitId"></p-dropdown>
+                </div>
+            </div>
+            <div class="ui-g-12">
+                <div class="ui-g-4">
+                    <label for="color">Quantity</label>
+                </div>
+                <div class="ui-g-8">
+                    <input pInputText type="number" id="quantity" [(ngModel)]="batch.quantity" />
+                </div>
+            </div>
+        </div>
+        <p-footer>
+            <div class="ui-dialog-buttonpane ui-helper-clearfix">
+                <button type="button" pButton icon="fa fa-close" (click)="delete()" *ngIf="!newBatch" label="Delete"></button>
+                <button type="button" pButton icon="fa fa-check" (click)="save()" [disabled]="(batch != null) && batch.fruitId == 0" label="Save"></button>
+            </div>
+        </p-footer>
+    </p-dialog>

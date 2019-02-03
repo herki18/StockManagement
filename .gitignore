@@ -22,6 +22,15 @@ bld/
 [Bb]in/
 [Oo]bj/
 
+#Remove logging
+Logging/
+
+# Published files
+dist/
+
+# Tools for building
+tools/
+
 # Visual Studio 2015 cache/options directory
 .vs/
 # Uncomment if you have tasks that create the project's static files in wwwroot
@@ -68,6 +77,12 @@ artifacts/
 *.pidb
 *.svclog
 *.scc
+
+# Database files
+*.db
+
+# Ignore Build files
+build.ps1
 
 # Chutzpah Test files
 _Chutzpah*
@@ -215,3 +230,48 @@ FakesAssemblies/
 **/*.Server/GeneratedArtifacts
 **/*.Server/ModelManifest.xml
 _Pvt_Extensions
+
+
+# Web
+# compiled output
+/src/Web/dist
+/src/Web/tmp
+/src/Web/out-tsc
+
+# dependencies
+/src/Web/node_modules
+
+# profiling files
+/src/Web/chrome-profiler-events.json
+/src/Web/speed-measure-plugin.json
+
+# IDEs and editors
+/src/Web/.idea
+/src/Web/.project
+/src/Web/.classpath
+/src/Web/.c9/
+/src/Web/*.launch
+/src/Web/.settings/
+/src/Web/*.sublime-workspace
+
+# IDE - VSCode
+/src/Web/.vscode/*
+/src/Web/!.vscode/settings.json
+/src/Web/!.vscode/tasks.json
+/src/Web/!.vscode/launch.json
+/src/Web/!.vscode/extensions.json
+/src/Web/.history/*
+
+# misc
+/src/Web/.sass-cache
+/src/Web/connect.lock
+/src/Web/coverage
+/src/Web/libpeerconnection.log
+/src/Web/npm-debug.log
+/src/Web/yarn-error.log
+/src/Web/testem.log
+/src/Web/typings
+
+# System Files
+/src/Web/.DS_Store
+/src/Web/Thumbs.db
